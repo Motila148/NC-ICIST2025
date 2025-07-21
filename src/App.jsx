@@ -29,7 +29,7 @@ function App() {
     <Router>
       <ScrollToTop/>
       <div className="app-container">
-        {/*<Navbar/>*/}
+        <Navbar/>
         <Home/>
         <Routes>
           <Route path="/"element={<Home/>}/>
