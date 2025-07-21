@@ -30,6 +30,7 @@ function App() {
       <ScrollToTop/>
       <div className="app-container">
         <Navbar/>
+        <Home/>
         <Routes>
           <Route path="/"element={<Home/>}/>
           <Route path="/Committee"element={<Home/>}/> 

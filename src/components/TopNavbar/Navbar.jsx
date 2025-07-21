@@ -66,7 +66,7 @@ const Navbar = () => {
         {/* Top bar for the logo */}
         <div className="header__top-bar">
             <Link to="/" className="header__logo-link" onClick={closeAllMenus}>
-                <img className="header__logo" src="/Images/college_logo.png" alt="Logo" />
+                <img className="header__logo" src="./assets/college_logo.png" alt="Logo" />
                 
             </Link>
         </div>
