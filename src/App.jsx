@@ -26,11 +26,10 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Router>
+    <Router basename="/NC-ICIST2025">
       <ScrollToTop/>
       <div className="app-container">
         <Navbar/>
-        <Home/>
         <Routes>
           <Route path="/"element={<Home/>}/>
           <Route path="/Committee"element={<Home/>}/> 
