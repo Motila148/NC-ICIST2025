@@ -1,0 +1,61 @@
+/* SubCommittees.css */
+
+.subcommittees-section {
+  padding: 60px 20px;
+  background-color: #f8f9fa; /* A light, neutral background */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #343a40;
+  margin-bottom: 50px;
+}
+
+/* A responsive grid for the cards */
+.subcommittee-grid {
+  display: grid;
+  /* Creates 1, 2, or 3 columns based on screen width */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.subcommittee-card {
+  background: #ffffff;
+  padding: 1.75rem;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.subcommittee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.committee-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0056b3; /* A professional blue for titles */
+  margin-top: 0;
+  margin-bottom: 1rem;
+  min-height: 3.5rem; /* Ensures cards have similar height even with 1-line or 2-line titles */
+}
+
+.committee-chairman {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+}
+
+.committee-chairman strong {
+  color: #343a40;
+}

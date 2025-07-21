@@ -1,0 +1,247 @@
+/* Navbar.css */
+:root {
+  --navbar-height: 60px;
+  --top-bar-height: 100px;
+  --primary-blue: #005A9C;
+  --secondary-blue: #007bff;
+  --text-light: #ffffff;
+  --text-dark: #2c3e50;
+}
+
+/* --- Header Structure --- */
+.header {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header__top-bar {
+  background: var(--text-light);
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: var(--top-bar-height);
+}
+
+.header__logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-decoration: none;
+}
+
+.header__logo {
+  height: 80px;
+}
+
+.header__logo-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.header__logo-text p {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --- Main Navigation Bar --- */
+.navbar {
+  background: var(--primary-blue);
+  position: relative;
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: var(--navbar-height);
+}
+
+.navbar__spacer {
+  height: var(--navbar-height);
+}
+
+/* --- Navigation Links (Desktop) --- */
+.navbar__nav {
+  display: flex;
+  width: 100%;
+}
+
+.navbar__links {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the links */
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active-link {
+  background-color: rgba(255, 255, 255, 0.15);
+  font-weight: 700;
+}
+
+/* --- Dropdown Menu (Desktop) --- */
+.navbar__dropdown { position: relative; }
+.dropdown-arrow { font-size: 0.7rem; transition: transform 0.3s ease; }
+.navbar__dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+
+.navbar__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--text-light);
+  min-width: 250px;
+  list-style: none;
+  /* REMOVED: margin-top: 10px; <-- This was causing the gap */
+  padding: 0.5rem 0;
+  padding-top: 15px; /* ADDED: Creates space inside the menu without a gap */
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+  /* The pointer-events property can help bridge small animation gaps */
+  pointer-events: none;
+}
+
+.navbar__dropdown:hover .navbar__dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto; /* Re-enable pointer events when visible */
+}
+
+.navbar__dropdown-menu li a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.navbar__dropdown-menu li a:hover {
+  background-color: #f8f9fa;
+  color: var(--secondary-blue);
+}
+
+/* --- Hamburger Menu Button --- */
+.navbar__menu-button {
+  display: none;
+  position: absolute; /* Position relative to navbar container */
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  border-radius: 3px;
+}
+
+/* --- Mobile Styles --- */
+@media (max-width: 1024px) {
+  .navbar__menu-button { display: flex; }
+  .navbar__links {
+    display: none; /* Hide links by default on mobile */
+  }
+
+  .navbar__nav.active .navbar__links {
+    display: flex; /* Show links when menu is active */
+    position: absolute;
+    top: var(--navbar-height);
+    right: 2rem; /* Align to the right */
+    width: 280px;
+    background: var(--text-light);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  }
+  
+  .navbar__nav.active .nav-link {
+    color: var(--text-dark);
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .navbar__nav.active .navbar__dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: #f8f9fa;
+    max-height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    opacity: 1; visibility: visible; transform: none;
+    transition: max-height 0.4s ease-in-out;
+  }
+  
+  .navbar__nav.active .navbar__dropdown-menu.active {
+    max-height: 500px;
+  }
+
+  .navbar__nav.active .navbar__dropdown-menu li a {
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+    .header__logo-text { display: none; }
+    .header__logo { height: 60px; }
+    .header__top-bar { height: auto; padding: 0.5rem 1rem; justify-content: center;}
+    .navbar__container, .header__top-bar { padding: 0 1rem; }
+    .navbar__menu-button { right: 1rem; }
+}

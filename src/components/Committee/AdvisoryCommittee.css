@@ -1,0 +1,94 @@
+:root {
+  --primary-color: #0d47a1; /* A deep, professional blue */
+  --secondary-color: #1a237e; /* A dark indigo for titles */
+  --text-primary: #212529;
+  --text-secondary: #5a6268;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --card-border-color: #e9ecef;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.advisory-committee-section {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 50px;
+}
+
+/* Modern responsive grid for the profiles */
+.committee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.profile-card {
+  background: var(--card-background);
+  border: 1px solid var(--card-border-color);
+  border-radius: 8px;
+  padding: 25px;
+  text-align: left;
+  box-shadow: 0 4px 15px var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the Name - Most prominent */
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin: 0 0 8px 0;
+}
+
+/* Styles for the Title - Secondary information */
+.profile-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+/* Styles for the Affiliation - Tertiary information */
+.profile-affiliation {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+  padding-left: 22px; /* Space for the icon */
+  position: relative;
+}
+
+/* Adds a location icon for a professional touch */
+.profile-affiliation::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  background-color: var(--text-secondary);
+  /* SVG icon for a map pin, URL-encoded */
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512'%3E%3Cpath d='M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}

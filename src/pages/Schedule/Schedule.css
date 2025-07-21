@@ -1,0 +1,159 @@
+/* Schedule.css */
+.schedule-section {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2.5rem;
+  font-weight: 700;
+}
+
+/* Tab styling */
+.schedule-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tab-btn {
+  padding: 1.2rem 2rem; /* Increased padding for a larger click area */
+  font-size: 1.25rem;    /* Made the font size larger */
+  font-weight: 700;     /* Made the text bold */
+  color: #495057;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 4px; /* Made the active underline thicker */
+  background-color: #007bff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #0056b3;
+}
+
+.tab-btn.active {
+  color: #007bff;
+}
+
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+.tab-date {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+/* Timeline container */
+.timeline-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.event-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border-left: 5px solid #ccc; /* Default border color */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Color coding for event types */
+.event-item.session  { border-color: #3498db; } /* Blue */
+.event-item.keynote  { border-color: #9b59b6; } /* Purple */
+.event-item.break    { border-color: #2ecc71; } /* Green */
+.event-item.meal     { border-color: #e67e22; } /* Orange */
+.event-item.ceremony { border-color: #f1c40f; } /* Yellow */
+.event-item.special  { border-color: #34495e; } /* Dark Blue/Gray */
+
+/* "LIVE" Indicator */
+.event-item.live {
+  background-color: #e7f3ff;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+}
+
+.event-item.live::before {
+  content: 'LIVE';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background-color: #dc3545;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  animation: pulse-live 1.5s infinite;
+}
+
+@keyframes pulse-live {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.event-time {
+  font-weight: 600;
+  color: #34495e;
+  font-size: 1rem;
+  flex-basis: 180px;
+  flex-shrink: 0;
+}
+
+.event-details {
+  flex-grow: 1;
+}
+
+.event-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 0.25rem 0;
+}
+
+.event-description, .event-location {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.event-location {
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .event-item {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .event-time {
+    flex-basis: auto;
+  }
+}

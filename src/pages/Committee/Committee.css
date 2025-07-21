@@ -1,0 +1,106 @@
+.committee-section {
+  padding: 3rem 1rem;
+  background-color: #f9f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.committee-section h2 {
+  color: darkblue;
+}
+
+.committee-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #2b2f3a;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.committee-table-container {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.committee-table {
+  width: 100%;
+  min-width: 400px;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.committee-table th,
+.committee-table td {
+  padding: 1rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #eee;
+}
+
+.committee-table th {
+  background-color: #f1f3f8;
+  font-weight: 600;
+  width: 25%;
+  font-style: oblique;
+  color: #333;
+}
+
+.committee-table td ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.committee-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.committee-columns ul {
+  flex: 1 1 45%;
+  list-style-type: disc;
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .committee-section {
+    padding: 2rem 1rem;
+  }
+
+  .committee-title {
+    font-size: 1.5rem;
+  }
+
+  .committee-table th,
+  .committee-table td {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .committee-columns {
+    flex-direction: column;
+  }
+
+  .committee-columns ul {
+    flex: 1 1 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .committee-table th,
+  .committee-table td {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .committee-title {
+    font-size: 1.3rem;
+  }
+}
